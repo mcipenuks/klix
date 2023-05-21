@@ -1,4 +1,5 @@
 <script setup>
+    import { RouterLink } from 'vue-router';
     import { useRoute } from 'vue-router'
     import { ref, computed } from 'vue';
 
@@ -11,6 +12,9 @@
 </script>
 
 <template>
+    <nav>
+        <RouterLink to="/">Back to products</RouterLink>
+    </nav>
     <div class="container">
         <div class="product-image">
             <img :src="image" alt="">
@@ -25,6 +29,11 @@
 </template>
 
 <style scoped>
+nav {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
 .container {
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
