@@ -55,9 +55,10 @@ export class PayLater {
         }
 
         return (
-            <div class={`pay-later-wrapper ${this.isLoading ? 'loading' : ''}`}>
-                <div class="loader"></div>
-                <p>Pay within 6 months without interest or repay within { this.paymentData.numberOfPayments } months from €{this.paymentData.monthlySplitPaymentAmount}/mo.</p>
+            <div class={`pay-later-widget ${this.isLoading ? 'loading' : ''}`}>
+                <klix-loader isVisible={this.isLoading}></klix-loader>
+                <p>Pay within <strong>{ this.paymentData.numberOfPayments }</strong> months from <strong>€{this.paymentData.monthlySplitPaymentAmount} /mo</strong>.</p>
+                <img class="pay-later-logo" src="https://klix.blob.core.windows.net/public/pay-later-widget/assets/img/klix-pay-later-logo.svg" alt="klix pay later logo" height="40" />
             </div>
         );
     }

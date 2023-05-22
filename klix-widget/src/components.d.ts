@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface KlixLoader {
+        "isVisible": boolean;
+    }
     interface KlixPayLater {
         "amount": string;
         "brandId": string;
@@ -13,6 +16,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLKlixLoaderElement extends Components.KlixLoader, HTMLStencilElement {
+    }
+    var HTMLKlixLoaderElement: {
+        prototype: HTMLKlixLoaderElement;
+        new (): HTMLKlixLoaderElement;
+    };
     interface HTMLKlixPayLaterElement extends Components.KlixPayLater, HTMLStencilElement {
     }
     var HTMLKlixPayLaterElement: {
@@ -20,16 +29,21 @@ declare global {
         new (): HTMLKlixPayLaterElement;
     };
     interface HTMLElementTagNameMap {
+        "klix-loader": HTMLKlixLoaderElement;
         "klix-pay-later": HTMLKlixPayLaterElement;
     }
 }
 declare namespace LocalJSX {
+    interface KlixLoader {
+        "isVisible"?: boolean;
+    }
     interface KlixPayLater {
         "amount"?: string;
         "brandId"?: string;
         "language"?: string;
     }
     interface IntrinsicElements {
+        "klix-loader": KlixLoader;
         "klix-pay-later": KlixPayLater;
     }
 }
@@ -37,6 +51,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "klix-loader": LocalJSX.KlixLoader & JSXBase.HTMLAttributes<HTMLKlixLoaderElement>;
             "klix-pay-later": LocalJSX.KlixPayLater & JSXBase.HTMLAttributes<HTMLKlixPayLaterElement>;
         }
     }
