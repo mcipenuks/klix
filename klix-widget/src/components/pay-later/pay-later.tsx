@@ -1,5 +1,6 @@
 import { Component, Prop, State, Watch, h } from '@stencil/core';
 import { fetchMonthlyPayment } from 'api';
+import logo from '../../assets/img/klix-pay-later-logo.svg';
 
 @Component({
     tag: 'klix-pay-later',
@@ -58,7 +59,7 @@ export class PayLater {
             <div class={`pay-later-widget ${this.isLoading ? 'loading' : ''}`}>
                 <klix-loader isVisible={this.isLoading}></klix-loader>
                 <p>Pay within <strong>{ this.paymentData.numberOfPayments }</strong> months from <strong>€{this.paymentData.monthlySplitPaymentAmount} /mo</strong>.</p>
-                <img class="pay-later-logo" src="https://klix.blob.core.windows.net/public/pay-later-widget/assets/img/klix-pay-later-logo.svg" alt="klix pay later logo" height="40" />
+                <img class="pay-later-logo" src={logo} alt="klix pay later logo" height="40" />
             </div>
         );
     }
