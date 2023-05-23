@@ -6,9 +6,14 @@ describe('formatText', () => {
         expect(formatText(undefined)).toEqual('');
     });
 
-    it ('should replace placeholder with provided argument', () => {
+    it('should return empty string if no was text provided', () => {
         const text = 'Hello {0}, welcome to {1}'
         expect(formatText(text, 'Joe', 'Latvia')).toEqual('Hello Joe, welcome to Latvia');
+    });
+
+    it ('should return the same provided text if no arguments provided', () => {
+        const text = 'Hello {0}, welcome to {1}'
+        expect(formatText(text)).toEqual(text);
     });
 
     it ('should replace placholder if provided argumetn is a string or a number', () => {
