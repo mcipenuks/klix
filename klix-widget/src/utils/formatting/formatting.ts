@@ -1,4 +1,4 @@
-export function formatText(text: string, ...args: Array<string|number>) {
+export function formatText(text: string, ...args: Array<string|number>): string {
     if (!text) {
         return '';
     }
