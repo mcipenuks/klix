@@ -1,8 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
 
 @Component({
-    tag: 'klix-loader',
-    styleUrl: 'loader.scss',
+    tag: 'loading-overlay',
+    styleUrl: 'loading-overlay.scss',
 })
 
 export class Loader {

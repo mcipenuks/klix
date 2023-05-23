@@ -6,53 +6,53 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface KlixLoader {
-        "isVisible": boolean;
-    }
     interface KlixPayLater {
         "amount": string;
         "brandId": string;
         "language": string;
     }
+    interface LoadingOverlay {
+        "isVisible": boolean;
+    }
 }
 declare global {
-    interface HTMLKlixLoaderElement extends Components.KlixLoader, HTMLStencilElement {
-    }
-    var HTMLKlixLoaderElement: {
-        prototype: HTMLKlixLoaderElement;
-        new (): HTMLKlixLoaderElement;
-    };
     interface HTMLKlixPayLaterElement extends Components.KlixPayLater, HTMLStencilElement {
     }
     var HTMLKlixPayLaterElement: {
         prototype: HTMLKlixPayLaterElement;
         new (): HTMLKlixPayLaterElement;
     };
+    interface HTMLLoadingOverlayElement extends Components.LoadingOverlay, HTMLStencilElement {
+    }
+    var HTMLLoadingOverlayElement: {
+        prototype: HTMLLoadingOverlayElement;
+        new (): HTMLLoadingOverlayElement;
+    };
     interface HTMLElementTagNameMap {
-        "klix-loader": HTMLKlixLoaderElement;
         "klix-pay-later": HTMLKlixPayLaterElement;
+        "loading-overlay": HTMLLoadingOverlayElement;
     }
 }
 declare namespace LocalJSX {
-    interface KlixLoader {
-        "isVisible"?: boolean;
-    }
     interface KlixPayLater {
         "amount"?: string;
         "brandId"?: string;
         "language"?: string;
     }
+    interface LoadingOverlay {
+        "isVisible"?: boolean;
+    }
     interface IntrinsicElements {
-        "klix-loader": KlixLoader;
         "klix-pay-later": KlixPayLater;
+        "loading-overlay": LoadingOverlay;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "klix-loader": LocalJSX.KlixLoader & JSXBase.HTMLAttributes<HTMLKlixLoaderElement>;
             "klix-pay-later": LocalJSX.KlixPayLater & JSXBase.HTMLAttributes<HTMLKlixPayLaterElement>;
+            "loading-overlay": LocalJSX.LoadingOverlay & JSXBase.HTMLAttributes<HTMLLoadingOverlayElement>;
         }
     }
 }
