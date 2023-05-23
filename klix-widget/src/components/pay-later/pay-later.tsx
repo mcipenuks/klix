@@ -1,5 +1,7 @@
 import { Component, Prop, State, Watch, h } from '@stencil/core';
 import { fetchMonthlyPayment } from 'api';
+import { getComponentTranslations } from 'utils/translations';
+import { formatText } from 'utils/formatting/formatting';
 import logo from '../../assets/img/klix-pay-later-logo.svg';
 
 @Component({
@@ -15,6 +17,7 @@ export class PayLater {
 
     @State() isLoading: boolean = false;
     @State() paymentData: MonthlyPaymentResponse = null;
+    @State() i18n;
 
     @Watch('amount')
     onAmountChanged() {
@@ -46,7 +49,8 @@ export class PayLater {
         return true;
     }
 
-    componentWillLoad() {
+    async componentWillLoad() {
+        this.i18n = await getComponentTranslations('pay-later', this.language);
         this.fetchPayment();
     }
 
@@ -58,7 +62,7 @@ export class PayLater {
         return (
             <div class={`pay-later-widget ${this.isLoading ? 'loading' : ''}`}>
                 <klix-loader isVisible={this.isLoading}></klix-loader>
-                <p>Pay within <strong>{ this.paymentData.numberOfPayments }</strong> months from <strong>€{this.paymentData.monthlySplitPaymentAmount} /mo</strong>.</p>
+                <p innerHTML={formatText(this.i18n.installment_pay_within, this.paymentData.numberOfPayments, this.paymentData.monthlySplitPaymentAmount)}></p>
                 <img class="pay-later-logo" src={logo} alt="klix pay later logo" height="40" />
             </div>
         );

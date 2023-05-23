@@ -17,6 +17,12 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+      copy: [
+        {
+          src: "**/*.*.json",
+          dest: "i18n"
+        }
+      ],
     },
   ],
   plugins: [
