@@ -5,6 +5,7 @@
 `/klix-demo` - Simple demo app built on vue which embeds the widget
 
 # Development server setup
+You can setup the project either with docker or manually
 
 ## Docker setup
 ```
