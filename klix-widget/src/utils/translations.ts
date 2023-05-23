@@ -1,7 +1,9 @@
+import { HOST_BASE_URL } from "./env";
+
 const DEFAULT_LANGUAGE = 'en';
 
 async function fetchTranslations(componentName: string, locale: string): Promise<any> {
-    const localizationUrl = `/i18n/${componentName}.${locale}.json`;
+    const localizationUrl = `${HOST_BASE_URL}/i18n/${componentName}.${locale}.json`;
     return new Promise((resolve, reject): void => {
         fetch(localizationUrl).then((result) => {
             if (result.ok) {
@@ -9,7 +11,7 @@ async function fetchTranslations(componentName: string, locale: string): Promise
             } else {
                 reject();
             };
-        });
+        }, () => reject());
     });
 }
 
