@@ -1,7 +1,7 @@
 import { formatText } from './formatting';
 
 describe('formatText', () => {
-    it('should return empty string if no was text provided', () => {
+    it('should return empty string if no text was provided', () => {
         expect(formatText(null)).toEqual('');
         expect(formatText(undefined)).toEqual('');
     });
