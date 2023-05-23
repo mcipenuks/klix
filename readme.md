@@ -6,15 +6,24 @@
 
 # Development server setup
 
-## Widget setup
-Server should be running on port `8888`
+## Docker setup
+```
+docker-compose up
+```
+
+Widget server: http://localhost:8888
+
+Demo app server: http://localhost:5173
+## Manual setup
+
+### Widget setup
 ```bash
 cd klix-widget
 npm install
 npm run start
 ```
 
-## Demo page setup
+### Demo page setup
 ```bash
 cd klix-demo
 npm install
