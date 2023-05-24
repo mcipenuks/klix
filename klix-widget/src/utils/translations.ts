@@ -7,7 +7,7 @@ async function fetchTranslations(componentName: string, locale: string): Promise
     return new Promise((resolve, reject): void => {
         fetch(localizationUrl).then((result) => {
             if (result.ok) {
-                resolve(result.json())
+                resolve(result.json());
             } else {
                 reject();
             };
