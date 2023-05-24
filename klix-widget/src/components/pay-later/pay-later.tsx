@@ -62,7 +62,7 @@ export class PayLater {
         return (
             <div class={`pay-later-widget ${this.isLoading ? 'loading' : ''}`}>
                 <loading-overlay isVisible={this.isLoading}></loading-overlay>
-                <p innerHTML={formatText(this.i18n.installment_pay_within, this.paymentData.numberOfPayments, this.paymentData.monthlySplitPaymentAmount)}></p>
+                <p innerHTML={formatText(this.i18n.installment_pay_within, this.paymentData.numberOfPayments.toString(), this.paymentData.monthlySplitPaymentAmount.toString())}></p>
                 <img class="pay-later-logo" src={logo} alt="klix pay later logo" height="40" />
             </div>
         );

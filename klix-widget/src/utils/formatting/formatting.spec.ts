@@ -16,8 +16,9 @@ describe('formatText', () => {
         expect(formatText(text)).toEqual(text);
     });
 
-    it ('should replace placholder if provided argument is a string or a number', () => {
+    it ('should replace placholder only if the argument is a string', () => {
         const text = "My name is {0} and I'm {1} years old"
-        expect(formatText(text, 'Joe', 30)).toEqual("My name is Joe and I'm 30 years old");
+        expect(formatText(text, 'Joe', 30)).toEqual("My name is Joe and I'm {1} years old");
+        expect(formatText(text, null, undefined)).toEqual("My name is {0} and I'm {1} years old");
     });
 });
