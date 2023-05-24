@@ -1,7 +1,7 @@
 import { Component, Prop, State, Watch, h } from '@stencil/core';
-import { fetchMonthlyPayment } from 'api';
-import { getComponentTranslations } from 'utils/translations';
-import { formatText } from 'utils/formatting/formatting';
+import { fetchMonthlyPayment } from '../../api';
+import { getComponentTranslations } from '../../utils/translations';
+import { formatText } from '../../utils/formatting/formatting';
 import logo from '../../assets/img/klix-pay-later-logo.svg';
 
 @Component({

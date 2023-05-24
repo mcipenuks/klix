@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "utils/env";
+import { API_BASE_URL } from "../utils/env";
 
 export const fetchMonthlyPayment = async (payload: MonthlyPaymentPayload) => {
     try {
